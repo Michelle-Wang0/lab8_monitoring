@@ -1,4 +1,4 @@
-# Lab 7: Monitoring using Prometheus and Grafana
+# Lab 8: Monitoring using Prometheus and Grafana
 In this lab, you will gain hands-on experience in monitoring using Prometheus and visualizing metrics through Grafana. Prometheus is an open-source monitoring system for collecting and processing time-series data, while Grafana is a visualization platform for creating interactive dashboards. 
 
 You will set up a Prometheus monitoring system, connect it to a Kafka broker, and track key metrics. This practical application will be valuable for your Milestone 3. There are multiple components in this lab, some of which may be new to you, we strongly advise starting early to familiarize yourself. You can refer the screenshots included in this writeup for additional clarity.
@@ -7,18 +7,21 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 ## Deliverables
 - [ ] Setup Docker with Prometheus and Grafana.	Modify and Run Kafka Monitoring Script.
-- [ ] Verify Prometheus targets and metrics. Run queries in prometheus.
+- [ ] Verify Prometheus targets and metrics. Run queries in prometheus.  
+Be able to explain to TA about 
+how Prometheus read the data and deal with resets, counters (open ended)
+what if multiple machines need to syncronize
 - [ ] Configure Grafana Dashboard and add visualizations.
 
 
 ## Getting started
 - Ensure Python (preferably 3.8, 3.9, 3.10) and Docker is installed on your machine.
-- Clone the starter code from this [Git repository](https://github.com/XueyingJia/mlip-monitoring-lab) 
+- Clone the starter code from this [Git repository](https://github.com/Michelle-Wang0/lab8_monitoring) 
 - Navigate to this Github folder
 - Install required dependencies
     - `pip install -r requirements.txt`
-- Establish an SSH tunnel to the Kafka broker if not already connected
-    - `ssh -o ServerAliveInterval=60 -L 9092:localhost:9092 tunnel@128.2.204.215 -NTf`
+- Establish an SSH tunnel to the Kafka broker if not already connected: ((find remote_server, user, and password on the Canvas entry for this lab))
+    - `ssh -L <local_port>:localhost:<remote_port> <user>@<remote_server> -NTf`
 
 ## Background
 - Familiarize yourself with the `docker-compose.yaml` and `prometheus.yml` files.
@@ -69,7 +72,12 @@ To receive credit for this lab, show your work to the TA during recitation.
 6. Panel 3: Node CPU usage - Track CPU time consumed in 'system' mode by the node
    1. HINT: Track rate of `node_cpu_seconds_total`
 
-7. Panel 4: Average Request Latency - Average latency for all recommendation requests
+
+7. Panel 4: 95th Percentile Request Latency – Track high-end request latency over time  
+   1. HINT: Use `request_latency_seconds` and explore its `_bucket` form to visualize latency distribution.  
+   2. Apply percentile functions to display the 95th percentile latency (p95) of all recommendation requests.  
+
+8. (Optional:) Average Request Latency - Average latency for all recommendation requests
    1. HINT: Use forms of `request_latency_seconds`. Make use of formula for average= sum/count
 
 
@@ -87,6 +95,7 @@ Experiment with the Grafana interface to make your dashboard more intuitive. Ref
    A: Make sure you are using the correct URL for Prometheus server. It should be http://prometheus:9090, NOT http://localhost:9090.
 
 ## Additional resources
+- [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)
 - [Prometheus Overview](https://prometheus.io/docs/introduction/overview/)
 - [Prometheus Latest Documentation](https://prometheus.io/docs/prometheus/latest/migration/)
 - [Node Exporter GitHub Repository](https://github.com/prometheus/node_exporter)
