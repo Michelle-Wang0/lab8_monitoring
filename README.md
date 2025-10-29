@@ -7,11 +7,8 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 ## Deliverables
 - [ ] Setup Docker with Prometheus and Grafana.	Modify and Run Kafka Monitoring Script.
-- [ ] Verify Prometheus targets and metrics. Run queries in prometheus.  
-Be able to explain to TA about 
-how Prometheus read the data and deal with resets, counters (open ended)
-what if multiple machines need to syncronize
-- [ ] Configure Grafana Dashboard and add visualizations.
+- [ ] Verify Prometheus targets and metrics. Run queries in Prometheus.  Explain to the TA how Prometheus reads and stores metric data, how it handles counter resets when a service restarts.
+- [ ] Configure Grafana Dashboard and add visualizations. Explain to TA how you would aggregate or synchronize metrics if multiple instances of the same service were running.
 
 
 ## Getting started
@@ -105,3 +102,4 @@ Experiment with the Grafana interface to make your dashboard more intuitive. Ref
 
 
 Note: If you're not seeing any metric data on Prometheus or Grafana, please check if the kafka topic events are not throwing an error. If the topic has events that do not respond back with 200 status code, change the topic to some other topic `movielogN`
+
