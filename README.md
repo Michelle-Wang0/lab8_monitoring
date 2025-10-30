@@ -3,7 +3,7 @@ In this lab, you will gain hands-on experience in monitoring using Prometheus an
 
 You will set up a Prometheus monitoring system, connect it to a Kafka broker, and track key metrics. This practical application will be valuable for your Milestone 3. There are multiple components in this lab, some of which may be new to you, we strongly advise starting early to familiarize yourself. You can refer the screenshots included in this writeup for additional clarity.
 
-To receive credit for this lab, show your work to the TA during recitation.
+To receive credit for this lab, show your work to the TA in your own recitation section.
 
 ## Deliverables
 - [ ] Setup Docker with Prometheus and Grafana.	Modify and Run Kafka Monitoring Script.
@@ -12,12 +12,12 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 
 ## Getting started
-- Ensure Python (preferably 3.8, 3.9, 3.10) and Docker is installed on your machine.
+- Ensure Python (preferably 3.11 or 3.10) and Docker is installed on your machine.
 - Clone the starter code from this [Git repository](https://github.com/Michelle-Wang0/lab8_monitoring) 
 - Navigate to this Github folder
 - Install required dependencies
     - `pip install -r requirements.txt`
-- Establish an SSH tunnel to the Kafka broker if not already connected: ((find remote_server, user, and password on the Canvas entry for this lab))
+- Establish an SSH tunnel to your team project’s Kafka broker, if not already connected (find <remote_server> and <user> in M1's instructions in Canvas):
     - `ssh -L <local_port>:localhost:<remote_port> <user>@<remote_server> -NTf`
 
 ## Background
@@ -34,7 +34,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 ## Prometheus Targets and Queries
 1. Verify that all targets are active in Prometheus under Status > Targets.
-2. Kafka metrics are visible at http://localhost:8765, reflecting the metrics you coded in kafka-monitoring.py.
+2. Kafka metrics are visible at http://localhost:8765/metrics, reflecting the metrics you coded in kafka-monitoring.py.
 3. Node exporter metrics are available at http://localhost:9100. These are system / host level metrics.
 4. Use the Prometheus dashboard's Graph section to explore metrics. Click on the metrics explorer (earth icon) and search for `request_count_total` to visualize total requests with their status.
 5. Feel free to explore various metrics available in metrics explorer in the table/graph format.
@@ -76,8 +76,6 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 8. (Optional:) Average Request Latency - Average latency for all recommendation requests
    1. HINT: Use forms of `request_latency_seconds`. Make use of formula for average= sum/count
-
-
 
 ## Optional: Customize panels
 Customize your panels with titles and labels, and adjust the visualizations for better clarity and insight. 
