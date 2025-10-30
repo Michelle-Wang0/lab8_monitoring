@@ -36,7 +36,7 @@ To receive credit for this lab, show your work to the TA in your own recitation 
 1. Verify that all targets are active in Prometheus under Status > Targets.
 2. Kafka metrics are visible at http://localhost:8765/metrics, reflecting the metrics you coded in kafka-monitoring.py.
 3. Node exporter metrics are available at http://localhost:9100. These are system / host level metrics.
-4. Use the Prometheus dashboard's Graph section to explore metrics. Click on the metrics explorer (earth icon) and search for `request_count_total` to visualize total requests with their status.
+4. Use the Prometheus dashboard's Graph section to explore metrics. Click on the metrics explorer (earth icon) and search for `request_count_total` to visualize total requests with their status. Then, try `rate(requests_count_total)[30s]`.
 5. Feel free to explore various metrics available in metrics explorer in the table/graph format.
 
 ![prometheus](prometheus.png)
@@ -78,8 +78,8 @@ To receive credit for this lab, show your work to the TA in your own recitation 
    1. HINT: Use forms of `request_latency_seconds`. Make use of formula for average= sum/count
 
 ## Optional: Customize panels
-Customize your panels with titles and labels, and adjust the visualizations for better clarity and insight. 
-Experiment with the Grafana interface to make your dashboard more intuitive. Refer this for [dashboard](https://grafana.com/grafana/dashboards/) configurations.
+- Customize your panels with titles and labels, and adjust the visualizations for better clarity and insight. Please use proper title, axis labels, and axis units to make the visualization clear.
+- Experiment with the Grafana interface to make your dashboard more intuitive. Refer this for [dashboard](https://grafana.com/grafana/dashboards/) configurations. 
 
 ## FAQ:
 1. Q: How to establish an SSH tunnel to the Kafka broker? \
